@@ -39,7 +39,7 @@ services:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
       - ME_CONFIG_BASICAUTH_USERNAME=admin
-      - ME_CONFIG_BASICAUTH_PASSWORD=tribes
+      - ME_CONFIG_BASICAUTH_PASSWORD=passwd
     ports:
       - '8081:8081'
     restart: always
