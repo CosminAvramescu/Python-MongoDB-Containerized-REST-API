@@ -9,7 +9,11 @@ cat si mongo express sunt protejate prin autentificarea cu user si parola, crede
 docker compose. De asemenea, folosesc 2 volume, unul pentru mongo db si unul pentru mongo express. La
 rularea docker-compose, se initializeaza baza de date prin scriptul-ul init-db.js (se creaza cele 3
 colectii - country, city si temperatures si se seteaza pentru fiecare unique constraints pe field-urile
-din cerinta).
+din cerinta). In Dockerfile instalez pachetele din requirments.txt, setez directorul curent, host-ul
+si port-ul pe care ruleaza aplicatia. In docker-compose.yml, se trag imaginile de mongo db si mongo
+express, se pun credentialele in variabile de mediu, si se seteaza porturile si volumele pentru
+persistenta datelor. Pentru rest api, tot aici, se face build-ul dupa dockerfile dat in configuratie
+si se seteaza porturile.
 
 ---Aspecte generale
 
