@@ -1,6 +1,6 @@
 344C3_Avramescu_Cosmin_Alexandru
 
----Arhitecturacmz
+---Arhitectura
 
     Dupa cum se vede in docker-compose.yml, am 3 microservicii (python-rest-api, baza de date MongoDB si 
 utilitarul bazei de date mongo express). Mongo DB are nevoie de network pentru a comunica, de aceea am

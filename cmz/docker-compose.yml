@@ -1,0 +1,60 @@
+version: "3.7"
+
+networks:
+  mongo-express-db:
+  mongo-api-db:
+
+volumes:
+  data_mongo:
+  data_express:
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    hostname: test_mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=tema2
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    networks: 
+      - mongo-express-db
+      - mongo-api-db
+    ports:
+      - '27017:27017'
+    restart: always
+    volumes:
+      - data_mongo:/data/db
+      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:latest
+    depends_on:
+      - mongodb
+    networks: 
+      - mongo-express-db
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=passwd
+    ports:
+      - '8081:8081'
+    restart: always
+    volumes:
+      - data_express:/data/db
+  
+  python-rest-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-rest-api
+    networks:
+      - mongo-api-db
+    ports:
+      - "6000:6000"
+    restart: always
+    depends_on:
+      - mongodb
