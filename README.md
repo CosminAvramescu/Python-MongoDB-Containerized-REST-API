@@ -13,7 +13,7 @@
 
 ---Architecture
 
-	As seen in docker-compose.yml, I have 3 microservices (python-rest-api, MongoDB database and 
+	    As seen in docker-compose.yml, I have 3 microservices (python-rest-api, MongoDB database and 
     mongo express database utility). I have used 2 networks, one between rest api and mongo db and 
     one between mongo db and mongo express. Both mongo db
     and mongo express are protected by user and password authentication, credentials are found in 
@@ -27,7 +27,7 @@
 
 ---General aspects
 
-	Since MongoDB puts by default a "_id" field of type ObjectID(), the following operations were
+	    Since MongoDB puts by default a "_id" field of type ObjectID(), the following operations were
     executed several times: update json with "id" instead of "_id" or vice versa and convert from 
     ObjectID() to string to serialize the object and return the response. 
 	Besides checking all error cases I could think of, there are insert_one() operations for 
