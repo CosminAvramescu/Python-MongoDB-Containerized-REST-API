@@ -20,7 +20,7 @@
     docker compose. I also used 2 volumes, one for mongo db and one for mongo express. At
     running docker-compose, the database is initialized with the init-db.js script (create the 3
     collections - country, city and temperatures and set for each unique constraints on the fields). 
-	In Dockerfile I install the packages from requirments.txt, set the current directory, host
+	    In Dockerfile I install the packages from requirments.txt, set the current directory, host
     and the port on which the application runs. In docker-compose.yml, I drag the mongo db and mongo 
     images express, put the credentials in environment variables, and set the ports and volumes for
     data persistence. Build the api from dockerfile.
@@ -30,7 +30,7 @@
 	    Since MongoDB puts by default a "_id" field of type ObjectID(), the following operations were
     executed several times: update json with "id" instead of "_id" or vice versa and convert from 
     ObjectID() to string to serialize the object and return the response. 
-	Besides checking all error cases I could think of, there are insert_one() operations for 
+	    Besides checking all error cases I could think of, there are insert_one() operations for 
     adding, find_one() for find element, find() for finding all elements, update_one() for put and 
     delete_one() for delete. All these methods in pymongo can receive a json as query parameter. For 
     more complicated queries, I used the syntax "$in": cities, to set the search according to the ids 
