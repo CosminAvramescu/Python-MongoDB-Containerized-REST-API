@@ -1,29 +1,127 @@
-344C3_Avramescu_Cosmin_Alexandru
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <p align="center">
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+  </p>
+</div>
 
----Arhitecturacmz
+<!-- ABOUT THE PROJECT -->
+# ABOUT THE PROJECT
+![oauth](https://i.imgur.com/8YiiFGq.png)
 
-    Dupa cum se vede in docker-compose.yml, am 3 microservicii (python-rest-api, baza de date MongoDB si 
-utilitarul bazei de date mongo express). Mongo DB are nevoie de network pentru a comunica, de aceea am
-folosit 2 networks, una intre rest api si mongo db si una intre mongo db si mongo express. Atat mongo db
-cat si mongo express sunt protejate prin autentificarea cu user si parola, credentialele se gasesc in 
-docker compose. De asemenea, folosesc 2 volume, unul pentru mongo db si unul pentru mongo express. La
-rularea docker-compose, se initializeaza baza de date prin scriptul-ul init-db.js (se creaza cele 3
-colectii - country, city si temperatures si se seteaza pentru fiecare unique constraints pe field-urile
-din cerinta). In Dockerfile instalez pachetele din requirments.txt, setez directorul curent, host-ul
-si port-ul pe care ruleaza aplicatia. In docker-compose.yml, se trag imaginile de mongo db si mongo
-express, se pun credentialele in variabile de mediu, si se seteaza porturile si volumele pentru
-persistenta datelor. Pentru rest api, tot aici, se face build-ul dupa dockerfile dat in configuratie
-si se seteaza porturile.
+---Architecture
 
----Aspecte generale
+	As seen in docker-compose.yml, I have 3 microservices (python-rest-api, MongoDB database and 
+mongo express database utility). I have used 2 networks, one between rest api and mongo db and 
+one between mongo db and mongo express. Both mongo db
+and mongo express are protected by user and password authentication, credentials are found in 
+docker compose. I also used 2 volumes, one for mongo db and one for mongo express. At
+running docker-compose, the database is initialized with the init-db.js script (create the 3
+collections - country, city and temperatures and set for each unique constraints on the fields). 
+	In Dockerfile I install the packages from requirments.txt, set the current directory, host
+and the port on which the application runs. In docker-compose.yml, I drag the mongo db and mongo images
+express, put the credentials in environment variables, and set the ports and volumes for
+data persistence. Build the api from dockerfile.
 
-    Avand in vedere ca MongoDB pune by default un camp "_id" de tipul ObjectID(), pe parcusul temei am
-facut de mai multe ori urmatoarele operatii: reactualizare json cu "id" in loc de "_id" sau invers
-si convertire din ObjectID() in string pentru a se putea serializa obiectul si pentru a se intoarce 
-raspunsul. Operatiile sunt destul de simple in cod, pe langa verificarea tuturor cazurilor de eroare
-la care am putut sa ma gandesc, sunt prezente operatii de insert_one() pentru adaugare, find_one() pentru
-gasire element, find() pentru gasire toate elementele, update_one() pentru put si delete_one() pentru 
-delete. Toate aceste metode din pymongo pot primi ca parametru query un json dupa care se vor face cautarile/inserarile. Pentru query-urile mai complicate, am folosit sintaxa "$in": cities, pentru a seta
-cautarea in functie de id-urile din array-ul city construit anterior, iar pentru timestamp am folosit
-"$lte" pentru a seta cautarea datei mai mici decat until si "$gte" pentru a seta cautarea datei mai mari
-decat from. 
+---General aspects
+
+	Since MongoDB puts by default a "_id" field of type ObjectID(), the following operations were 
+executed several times: update json with "id" instead of "_id" or vice versa and convert from ObjectID() 
+to string to serialize the object and return the response. 
+	Besides checking all error cases I could think of, there are insert_one() operations for adding, 
+find_one() for find element, find() for finding all elements, update_one() for put and delete_one() for 
+delete. All these methods in pymongo can receive a json as query parameter. For more complicated queries, 
+I used the syntax "$in": cities, to set the search according to the ids in the previously constructed city 
+array, and for the timestamp we used "$lte" to set the date search lower than until and "$gte" to set the 
+date search higher than from. 
+
+
+### Built With
+* [![Cpp][Cpp]][Cpp-url]
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/CosminAvramescu/Cpp-RPC-Oauth.git
+   ```
+2. Install rpcgen
+   ```sh
+   sudo apt-get update
+   sudo apt-get install rpcgen
+
+   rpcgen app.x
+   sudo rpcbind
+   ```
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+1. Run make command.
+2. Run ./app_server in a terminal and ./app_client in another terminal. 
+3. Run the script ./check.sh to test the app with the tests suite.
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Cosmin-Alexandru Avramescu - [@my_linkedin](https://www.linkedin.com/in/cosmin-avramescu/)
+
+Project Link: [https://github.com/CosminAvramescu/Cpp-RPC-Oauth](https://github.com/CosminAvramescu/Cpp-RPC-Oauth)
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* [rpcgen](https://docs.oracle.com/cd/E19683-01/816-1435/rpcgenpguide-21470/index.html)
+* [Oauth](https://www.soapui.org/docs/oauth1/oauth1-overview/)
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png
+[Cpp]: https://img.shields.io/badge/-C++-blue?logo=cplusplus
+[Cpp-url]: https://isocpp.org/
