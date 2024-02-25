@@ -1,12 +1,3 @@
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <p align="center">
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-  </p>
-</div>
-
 <!-- ABOUT THE PROJECT -->
 # ABOUT THE PROJECT
 ![api](https://i.imgur.com/QlTdmU0.png)
@@ -41,21 +32,15 @@
 
 
 ### Built With
+* [![Flask][Flask]][Flask-url]
 * [![Python][Python]][Python-url]
 * [![Javascript][Javascript]][Javascript-url]
 * [![Docker][Docker]][Docker-url]
+* [![MongoDB][MongoDB]][MongoDB-url]
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
@@ -126,3 +111,7 @@ Project Link: [https://github.com/CosminAvramescu/Python-MongoDB-Containerized-R
 [Javascript-url]: https://devdocs.io/javascript/
 [Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
 [Docker-url]: https://docs.docker.com/
+[MongoDB]: https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/docs/
+[Flask]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
