@@ -11,16 +11,16 @@
 # ABOUT THE PROJECT
 ![api](https://i.imgur.com/QlTdmU0.png)
 
-	    Flask REST API for a weather service which provides info about countries, cities and temperatures.
+	Flask REST API for a weather service which provides info about countries, cities and temperatures.
 
 ---Architecture
 
-	    As seen in docker-compose.yml, I have 3 microservices (python-rest-api, MongoDB database and 
+	    As seen in docker-compose.yml, I have 3 microservices (python-rest-api, MongoDB database and
     mongo express database utility). I have used 2 networks, one between rest api and mongo db and 
     one between mongo db and mongo express. Both mongo db and mongo express are protected by user and 
     password authentication, credentials are found in docker compose. I also used 2 volumes, one for 
-    mongo db and one for mongo express. At running docker-compose, the database is initialized with the 
-    init-db.js script (create the 3 collections - country, city and temperatures and set for each unique 
+    mongo db and one for mongo express. At running docker-compose, the database is initialized with the
+    init-db.js script (create the 3 collections - country, city and temperatures and set for each unique
     constraints on the required fields). 
 	    In Dockerfile I install the packages from requirments.txt, set the current directory, host
     and port on which the application runs. In docker-compose.yml, I drag the mongo db and mongo express
@@ -64,8 +64,6 @@ This is an example of how to list things you need to use the software and how to
    git clone https://github.com/CosminAvramescu/Python-MongoDB-Containerized-REST-API.git
    ```
 2. Install Docker
-   ```sh
-   ```
 
 
 <!-- USAGE EXAMPLES -->
@@ -110,8 +108,8 @@ Project Link: [https://github.com/CosminAvramescu/Python-MongoDB-Containerized-R
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [rpcgen](https://docs.oracle.com/cd/E19683-01/816-1435/rpcgenpguide-21470/index.html)
-* [Oauth](https://www.soapui.org/docs/oauth1/oauth1-overview/)
+* [Docker + python rest api](https://dev.to/francescoxx/python-fullstack-rest-api-app-with-docker-1101)
+* [Docker compose](https://docs.docker.com/compose/)
 
 
 
@@ -122,9 +120,9 @@ Project Link: [https://github.com/CosminAvramescu/Python-MongoDB-Containerized-R
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-[Python]: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10-blue
+[Python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://docs.python.org/3.10/
-[Javascript]: https://img.shields.io/badge/logo-javascript-blue?logo=javascript
+[Javascript]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
 [Javascript-url]: https://devdocs.io/javascript/
 [Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
 [Docker-url]: https://docs.docker.com/
