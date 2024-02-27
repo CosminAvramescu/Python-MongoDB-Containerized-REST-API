@@ -50,6 +50,8 @@
    ```
 2. Install Docker
 
+3. Install Postman
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
